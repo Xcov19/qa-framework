@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="Suite" preserve-order="true">
+  <test thread-count="5" preserve-order="true" name="Test">
+  <parameter name="browser" value="chrome"></parameter>
     <classes>
-      <class name="com.xcov19.test.Testing"/>
+      <!-- <class name="com.xcov19.test.LoginSingleTest"/> -->
+      <!-- <class name="com.xcov19.test.SignUpValidationTest"/> --> 
+     <!--  <class name="com.xcov19.test.ChatTest"/>  -->
+	<class name="com.xcov19.test.LoginValidation"/>  
+      <!-- <class name="com.xcov19.test.SignUpSingleTest"/> -->
+    <class name="com.xcov19.test.CookiesSettingsTest"/> 
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
