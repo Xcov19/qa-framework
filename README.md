@@ -27,8 +27,8 @@ Consists of one package:
 - Select convert to TestNG option. 
 - Refresh the project.  testng.xml file will be created with all the test classes within it.
 - Open the testng.xml file.
--Click on Run as button available on the top menu bar.
--Select TestNG suite and click on OK.
+- Click on Run as button available on the top menu bar.
+- Select TestNG suite and click on OK.
 
 #### Steps to see the output
 - Click on the Test output folder.
