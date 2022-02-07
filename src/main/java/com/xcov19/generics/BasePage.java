@@ -254,6 +254,12 @@ public class BasePage
 		driver.switchTo().frame(id);
 	}
 	
+	//switch to pareent frame
+	public void switchToParentFrame(WebDriver driver)
+	{
+		driver.switchTo().parentFrame();
+	}
+	
 	//open a new tab
 	public void openNewTab(WebDriver driver)
 	{
@@ -267,11 +273,12 @@ public class BasePage
 	}
 	
 	//access data from properties file
-	public void propeties() throws IOException
+	public String propeties(String key) throws IOException
 	{
 		Properties prop = new Properties();
 		FileInputStream file = new FileInputStream("./test-data/config.properties");
 		prop.load(file);
+		return prop.getProperty(key);
 	}
 	
 }

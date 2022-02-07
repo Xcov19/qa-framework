@@ -8,7 +8,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ExcelLibrary implements AutoConstants
 {
-	public String cellValue(String sheet, int row, int cell) throws IOException
+	public static String cellValue(String sheet, int row, int cell) throws IOException
 	{
 		FileInputStream file = new FileInputStream(excel_path);
 		XSSFWorkbook xw = new XSSFWorkbook(file);
