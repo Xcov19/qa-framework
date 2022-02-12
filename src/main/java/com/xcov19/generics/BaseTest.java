@@ -18,7 +18,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest implements AutoConstants
 {
-	public WebDriver driver;
+	public static WebDriver driver;
 	
 	@BeforeSuite(alwaysRun = true)
 	public void executionStarts()

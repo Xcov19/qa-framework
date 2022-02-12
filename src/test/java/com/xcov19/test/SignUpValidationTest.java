@@ -1,14 +1,7 @@
 package com.xcov19.test;
 
 import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
-import org.testng.annotations.Test;
+
 import java.io.IOException;
 import java.time.Duration;
 
@@ -18,7 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
+
 
 import com.xcov19.generics.BaseTest;
 import com.xcov19.generics.ExcelLibrary;
@@ -29,6 +22,7 @@ public class SignUpValidationTest extends BaseTest
 	@Test
 	public void clickOnSignUpTest()
 	{
+		Reporter.log("signup validation test", true);
 		LoginPage login = new LoginPage(driver);
 		login.selectSignUp();
 		Reporter.log("signup started", true);
@@ -76,7 +70,7 @@ public class SignUpValidationTest extends BaseTest
 		String expectedURL = "https://www.mycovidconnect.com/profile";
 		String actualURL = driver.getCurrentUrl();
 		
-		if(actualURL.equalsIgnoreCase(actualURL))
+		if(actualURL.equalsIgnoreCase(expectedURL))
 		{
 			Reporter.log("signup successful");
 		}

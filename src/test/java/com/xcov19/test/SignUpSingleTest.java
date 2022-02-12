@@ -17,6 +17,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
@@ -48,7 +51,8 @@ public class SignUpSingleTest extends BaseTest
 	@Test()
 	public void signUpTest() throws InterruptedException, IOException
 	{
-				
+			
+		Reporter.log("signup single test", true);
 		LoginPage login = new LoginPage(driver);
 		login.selectSignUp();
 		Reporter.log("signup started", true);
