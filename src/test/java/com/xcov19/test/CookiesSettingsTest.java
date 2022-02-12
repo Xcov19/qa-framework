@@ -6,6 +6,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import java.io.IOException;
 
 import org.testng.Reporter;
@@ -23,6 +26,7 @@ public class CookiesSettingsTest extends BaseTest
 	@Test(priority = 0)
 	public void performLoginOnce() throws IOException
 	{
+		Reporter.log("cookies test", true);
 		LoginPage login = new LoginPage(driver);
 		login.performLogin();
 	}

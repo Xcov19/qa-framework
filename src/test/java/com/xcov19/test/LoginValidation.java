@@ -17,6 +17,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
@@ -63,7 +66,7 @@ public class LoginValidation extends BaseTest
 	@Test(dataProvider = "login-data")
 	public void loginTestValidation(String Username, String password) throws IOException, InterruptedException
 	{
-		Reporter.log("login started", true);
+		Reporter.log("login validation test started", true);
 		Reporter.log("username is "+Username, true);
 		Reporter.log("password is "+password, true);
 		

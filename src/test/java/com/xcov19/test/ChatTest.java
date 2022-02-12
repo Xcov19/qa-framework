@@ -12,6 +12,9 @@ import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
 import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
+import org.testng.annotations.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -38,6 +41,7 @@ public class ChatTest extends BaseTest
 	@Test(priority = 1)
 	public void openChatPopUpTest() throws InterruptedException
 	{
+		Reporter.log("chat test", true);
 		LoginPage login = new LoginPage(driver);
 		try {
 			login.performLogin();
@@ -54,6 +58,7 @@ public class ChatTest extends BaseTest
 	@Test(priority = 2)
 	public void sendMessageOnChatTest()
 	{
+		
 		ChatPopUp chat = new ChatPopUp(driver);
 		chat.sendMessageOnChatPopUpOnce();
 	}
