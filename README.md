@@ -2,7 +2,31 @@
 
 This repo uses Selenium web driver with Java for UI automation of xcov19.
 
-#### Steps to setup
+Prerequisites
+
+1. Install java https://www.oracle.com/java/technologies/downloads/#jdk17-mac
+$ java -version
+java version "17.0.2" 2022-01-18 LTS
+Java(TM) SE Runtime Environment (build 17.0.2+8-LTS-86)
+Java HotSpot(TM) 64-Bit Server VM (build 17.0.2+8-LTS-86, mixed mode, sharing)
+
+2. Install maven https://maven.apache.org/download.cgi
+$ mvn -version
+Apache Maven 3.8.4 (9b656c72d54e5bacbed989b64718c159fe39b537)
+Maven home: /usr/local/Cellar/maven/3.8.4/libexec
+Java version: 17.0.2, vendor: Homebrew, runtime: /usr/local/Cellar/openjdk/17.0.2/libexec/openjdk.jdk/Contents/Home
+Default locale: en_US, platform encoding: UTF-8
+OS name: "mac os x", version: "10.15.7", arch: "x86_64", family: "mac"
+
+To start automation script
+
+1. Go to the project root directory
+cd qa-framework
+
+2. Start the script
+mvn test
+----------------------------------------------------------------------------------------------------------
+#### Steps to setup using Eclipse
 1. Install Eclipse
 2. Create  a workspace in your local. Workspace is nothing but a folder which is dedicated for all selenium files.
 3. Open Eclipse and switch to the newly created workspace.
@@ -21,7 +45,7 @@ Consists of two packages:
 Consists of one package:
  - com.XCOV19.test: This package consists of all the test classes. Each test class is one test case (To be created by QA).
 
-#### Steps to run the test classes
+#### Steps to run the test classes on Eclipse
 - Right click on the project.
 - Click on TestNG.
 - Select convert to TestNG option. 
