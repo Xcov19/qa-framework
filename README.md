@@ -33,11 +33,11 @@ To start automation script
 
 1. Go to the project root directory
 
-cd qa-framework
+$ cd qa-framework
 
 2. Start the script
 
-mvn test
+$ mvn test
 
 ----------------------------------------------------------------------------------------------------------
 #### Steps to setup using Eclipse
