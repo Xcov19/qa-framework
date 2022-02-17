@@ -32,6 +32,15 @@ $ cd qa-framework
 ```
   $ mvn test
 ```
+3. Command to run a particular test class
+```
+$ mvn test -Dtest="classname"
+```
+Example: 
+``` 
+$ mvn test -Dtest="com.xcov19.test.LoginValidation"
+```
+
 ----------------------------------------------------------------------------------------------------------
 #### Steps to setup using Eclipse
 1. Install Eclipse
