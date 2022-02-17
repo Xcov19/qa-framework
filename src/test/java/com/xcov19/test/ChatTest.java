@@ -129,5 +129,6 @@ public class ChatTest extends BaseTest
 	{
 		ChatPopUp chat = new ChatPopUp(driver);
 		chat.CloseChatPopUp();
+		Reporter.log("-------------------------------------------------------------------", true);
 	}
 }

@@ -59,8 +59,9 @@ public class LoginValidation extends BaseTest
 				values[i][j] = ExcelLibrary.cellValue("login", i, j);
 			}
 		}
-		
+		Reporter.log("-------------------------------------------------------------------", true);
 		return values;
+		
 	}
 
 	@Test(dataProvider = "login-data")

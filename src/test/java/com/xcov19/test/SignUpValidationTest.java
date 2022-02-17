@@ -26,6 +26,7 @@ public class SignUpValidationTest extends BaseTest
 		LoginPage login = new LoginPage(driver);
 		login.selectSignUp();
 		Reporter.log("signup started", true);
+		Reporter.log("-------------------------------------------------------------------", true);
 	}
 	
 	@DataProvider(name = "signup-data")

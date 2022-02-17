@@ -28,5 +28,6 @@ public class LoginSingleTest extends BaseTest
 		Reporter.log("login single  test", true);
 		LoginPage login = new LoginPage(driver);
 		login.performLogin();
+		Reporter.log("-------------------------------------------------------------------", true);
 	}
 }

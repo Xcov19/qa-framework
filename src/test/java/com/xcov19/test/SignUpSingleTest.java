@@ -59,7 +59,7 @@ public class SignUpSingleTest extends BaseTest
 		SignUpPage signUp = new SignUpPage(driver);
 		signUp.performSignUp();
 		Reporter.log("finished sigh up", true);
-
+		Reporter.log("-------------------------------------------------------------------", true);
 	}
 	
 	

@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.xcov19.generics.BasePage;
@@ -119,6 +120,7 @@ public class CookiesPopUp extends BasePage
 		else
 		{
 			Reporter.log("cookie preferneces is not saved", true);
+			Assert.fail();
 		}
 		
 		waitUntilElementToBeClickable(driver, OKButton);
@@ -140,6 +142,7 @@ public class CookiesPopUp extends BasePage
 		else
 		{
 			Reporter.log("error in withdraw consent", true);
+			Assert.fail();
 		}
 		waitUntilElementToBeClickable(driver, OKButton);
 		performClickUsingActions(driver, OKButton);

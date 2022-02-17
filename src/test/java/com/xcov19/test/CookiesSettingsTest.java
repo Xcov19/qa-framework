@@ -31,7 +31,7 @@ public class CookiesSettingsTest extends BaseTest
 		login.performLogin();
 	}
 	
-	@Test(priority = 1, invocationCount = 1)
+	@Test(priority = 1)
 	public void changeCookiesAndVerifyTest() throws IOException, InterruptedException
 	{
 		HomePage home = new HomePage(driver);
@@ -87,7 +87,7 @@ public class CookiesSettingsTest extends BaseTest
 		privacy.clickOnCloseButton();
 	}
 	
-	@Test(priority = 2, invocationCount = 1)
+	@Test(priority = 2)
 	public void withDrawConsentTest() throws InterruptedException, IOException
 	{
 		HomePage home = new HomePage(driver);
@@ -125,6 +125,6 @@ public class CookiesSettingsTest extends BaseTest
 		cookies.verifyIfConsentIsWithdrawn();
 		
 		privacy.clickOnCloseButton();
-
+		Reporter.log("-------------------------------------------------------------------", true);
 	}
 }

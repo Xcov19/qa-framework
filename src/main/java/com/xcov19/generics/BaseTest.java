@@ -1,10 +1,13 @@
 package com.xcov19.generics;
 
+import static org.testng.Assert.fail;
+
 import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.sonatype.inject.Parameters;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterSuite;
@@ -26,14 +29,19 @@ public class BaseTest implements AutoConstants
 		Reporter.log("Execution begins", true);
 	}
 	
-	@org.testng.annotations.Parameters("browser")
+//	@org.testng.annotations.Parameters("browser")
 	@BeforeClass(alwaysRun = true)
-	public void openBrowserAndLogin(String browser) throws IOException
+	public void openBrowserAndLogin() throws IOException
 	{
+		String browser = System.getProperty("browser");
 		if (browser.equalsIgnoreCase("chrome")) 
 		{
 			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
+		}
+		else {
+			Reporter.log("Incorrect browser (" + browser + ") passed. Supported brwosers: [chrome]. Exiting...", true);
+			Assert.fail();
 		}
 		
 		driver.manage().window().maximize();
