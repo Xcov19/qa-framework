@@ -40,7 +40,14 @@ Example:
 ``` 
 $ mvn test -Dtest="com.xcov19.test.LoginValidation"
 ```
-
+4. Command to pass URL  
+```
+$ mvn test -Durl=url
+```
+Example
+```
+mvn test -Durl=https://www.mycovidconnect.com/
+```
 ----------------------------------------------------------------------------------------------------------
 #### Steps to setup using Eclipse
 1. Install Eclipse
