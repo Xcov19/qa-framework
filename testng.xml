@@ -6,24 +6,24 @@
   <!-- <parameter name="browser" value="chrome"></parameter> -->
     <classes>
       <class name="com.xcov19.test.LoginSingleTest"/>
-      <class name="com.xcov19.test.LoginValidation"/>
+      <!-- <class name="com.xcov19.test.LoginValidation"/> -->
     </classes>
   </test>
   <test thread-count="1" name="Test2" >
     <classes>
-      <class name="com.xcov19.test.ChatTest"/>      
+      <!-- <class name="com.xcov19.test.ChatTest"/>       -->
     </classes>
   </test>
   <test thread-count="1" name="Test3" >
   <!-- <parameter name="browser" value="chrome"></parameter> -->
     <classes>
-      <class name="com.xcov19.test.CookiesSettingsTest"/>
+      <!-- <class name="com.xcov19.test.CookiesSettingsTest"/> -->
     </classes>
   </test>
   <test thread-count="1" name="Test4" >
   <!-- <parameter name="browser" value="chrome"></parameter> -->
     <classes>
-      <class name="com.xcov19.test.SignUpValidationTest"/>
+      <!-- <class name="com.xcov19.test.SignUpValidationTest"/> -->
     </classes>
   </test>
 </suite> <!-- Suite -->

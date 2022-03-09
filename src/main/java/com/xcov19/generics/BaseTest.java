@@ -30,8 +30,9 @@ public class BaseTest implements AutoConstants
 	}
 	
 //	@org.testng.annotations.Parameters("browser")
+	@org.testng.annotations.Parameters({"url"})
 	@BeforeClass(alwaysRun = true)
-	public void openBrowserAndLogin() throws IOException
+	public void openBrowserAndLogin(String url) throws IOException
 	{
 		String browser = System.getProperty("browser");
 		if (browser.equalsIgnoreCase("chrome")) 
@@ -46,7 +47,7 @@ public class BaseTest implements AutoConstants
 		
 		driver.manage().window().maximize();
 		//System.setProperty("webdriver.chrome.logfile", "./Logs/chromelogs.txt");
-		driver.get(siteUrl);
+		driver.get(url);
 		
 		HomePage home = new HomePage(driver);
 		home.acceptCookies();
