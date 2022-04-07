@@ -14,6 +14,7 @@ import org.testng.annotations.Test;
 import com.xcov19.generics.AutoConstants;
 import com.xcov19.generics.BasePage;
 import com.xcov19.generics.ExcelLibrary;
+import com.xcov19.generics.Logger;
 
 public class LoginPage extends BasePage implements AutoConstants
 {
@@ -57,22 +58,21 @@ public class LoginPage extends BasePage implements AutoConstants
 		passwordField.sendKeys(ExcelLibrary.cellValue("login", 4, 1));
 		//waitUntilElementToBeClickable(driver, showPasswordButton);
 		//showPasswordButton.click();
-		Reporter.log("hitting continue button", true);
+		Logger.info("hitting continue button");
 		waitUntilElementToBeClickable(driver, continueButton);
 		performClickUsingActions(driver, continueButton);
 		String expectedURL = "https://www.mycovidconnect.com/profile";
 		waitUntilElementToBeClickable(driver, welcomeButton);
 		String actualURL = driver.getCurrentUrl();
-		Reporter.log(actualURL, true);
+		Logger.info(actualURL);
 		
 		if(actualURL.equalsIgnoreCase(expectedURL))
 		{
-			Reporter.log("login successful", true);
+			Logger.info("login successful");
 		}
 		else
 		{
-			Reporter.log("login unsuccessful", true);
-
+			Logger.error("login unsuccessful");
 		}
 	}
 	

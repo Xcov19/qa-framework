@@ -42,6 +42,7 @@ import org.testng.annotations.Test;
 
 import com.xcov19.generics.BaseTest;
 import com.xcov19.generics.ExcelLibrary;
+import com.xcov19.generics.Logger;
 import com.xcov19.pom.HomePage;
 import com.xcov19.pom.LoginPage;
 import com.xcov19.pom.SignUpPage;
@@ -51,14 +52,13 @@ public class SignUpSingleTest extends BaseTest
 	@Test()
 	public void signUpTest() throws InterruptedException, IOException
 	{
-			
-		Reporter.log("signup single test", true);
+		Logger.info("signup single test");
 		LoginPage login = new LoginPage(driver);
 		login.selectSignUp();
-		Reporter.log("signup started", true);
+		Logger.info("signup started");
 		SignUpPage signUp = new SignUpPage(driver);
 		signUp.performSignUp();
-		Reporter.log("finished sigh up", true);
+		Logger.info("finished sigh up");
 		Reporter.log("-------------------------------------------------------------------", true);
 	}
 	

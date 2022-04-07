@@ -1,6 +1,7 @@
 package com.xcov19.generics;
 
 import java.awt.AWTException;
+
 import java.awt.Robot;
 import java.awt.event.KeyEvent;
 import java.io.FileInputStream;
@@ -22,7 +23,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class BasePage 
+public class BasePage
 {
 	
 	//wait until visibility of Element
@@ -280,5 +281,6 @@ public class BasePage
 		prop.load(file);
 		return prop.getProperty(key);
 	}
+	
 	
 }

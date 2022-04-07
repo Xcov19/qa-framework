@@ -36,6 +36,7 @@ import org.testng.annotations.Test;
 
 import com.xcov19.generics.BaseTest;
 import com.xcov19.generics.ExcelLibrary;
+import com.xcov19.generics.Logger;
 import com.xcov19.pom.HomePage;
 import com.xcov19.pom.LoginPage;
 
@@ -67,9 +68,9 @@ public class LoginValidation extends BaseTest
 	@Test(dataProvider = "login-data")
 	public void loginTestValidation(String Username, String password) throws IOException, InterruptedException
 	{
-		Reporter.log("login validation test started", true);
-		Reporter.log("username is "+Username, true);
-		Reporter.log("password is "+password, true);
+		Logger.info("login validation test started");
+		Logger.info("username is "+Username);
+		Logger.info("password is "+password);
 		
 		WebElement emailField = driver.findElement(By.xpath("//input[@id='username']"));
 		WebElement passwordField = driver.findElement(By.xpath("//input[@id='password']"));
@@ -80,7 +81,7 @@ public class LoginValidation extends BaseTest
 		wait.until(ExpectedConditions.visibilityOf(emailField));
 		emailField.clear();
 		emailField.sendKeys(Username);
-		Reporter.log(Username);
+		Logger.info(Username);
 	
 		wait.until(ExpectedConditions.visibilityOf(passwordField));
 		passwordField.sendKeys(password);
@@ -94,11 +95,11 @@ public class LoginValidation extends BaseTest
 		
 		if(actualURL.equalsIgnoreCase(actualURL))
 		{
-			Reporter.log("login successful", true);
+			Logger.info("login successful");
 		}
 		else
 		{
-			Reporter.log("login unsuccessful", true);
+			Logger.info("login unsuccessful");
 
 		}
 	}

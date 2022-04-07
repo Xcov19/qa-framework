@@ -6,6 +6,7 @@ import java.io.IOException;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.sonatype.inject.Parameters;
 import org.testng.Assert;
 import org.testng.Reporter;
@@ -19,14 +20,14 @@ import com.xcov19.pom.LoginPage;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class BaseTest implements AutoConstants
+public class BaseTest implements AutoConstants 
 {
 	public static WebDriver driver;
 	
 	@BeforeSuite(alwaysRun = true)
 	public void executionStarts()
 	{
-		Reporter.log("Execution begins", true);
+		Logger.info("Execution begins");
 	}
 	
 //	@org.testng.annotations.Parameters("browser")
@@ -37,21 +38,27 @@ public class BaseTest implements AutoConstants
 		String browser = System.getProperty("browser");
 		if (browser.equalsIgnoreCase("chrome")) 
 		{
+			ChromeOptions op = new ChromeOptions();
+			op.addArguments("headless");
 			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			driver = new ChromeDriver(op);
 		}
 		else {
-			Reporter.log("Incorrect browser (" + browser + ") passed. Supported brwosers: [chrome]. Exiting...", true);
+			Logger.error("Incorrect browser (" + browser + ") passed. Supported brwosers: [chrome]. Exiting...");
 			Assert.fail();
 		}
 		
 		driver.manage().window().maximize();
 		//System.setProperty("webdriver.chrome.logfile", "./Logs/chromelogs.txt");
+		
+		Logger.info("opening url: "+url);
+
 		driver.get(url);
+		
 		
 		HomePage home = new HomePage(driver);
 		home.acceptCookies();
-		Reporter.log("cookies accepted", true);
+		Logger.info("cookies accepted");
 		home.clickOnLogIn();
 //		
 //		LoginPage login = new LoginPage(driver);
@@ -71,6 +78,6 @@ public class BaseTest implements AutoConstants
 	@AfterSuite(alwaysRun = true)
 	public void executionEnds()
 	{
-		Reporter.log("execution ends", true);
+		Logger.info("execution ends");
 	}
 }

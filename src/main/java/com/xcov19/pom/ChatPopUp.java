@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
 import com.xcov19.generics.BasePage;
+import com.xcov19.generics.Logger;
 
 public class ChatPopUp extends BasePage
 {
@@ -51,14 +52,15 @@ public class ChatPopUp extends BasePage
 	public void clickOnChatIcon() throws InterruptedException
 	{
 		Thread.sleep(2000);
-		Reporter.log("switching to frame", true);		
+		Logger.info("switching to frame");
 
 		//switching to the frame having chat icon
 		driver.switchTo().frame(2);
 		
 		waitUntilElementToBeClickable(driver, chatIcon);
 		chatIcon.click();
-		Reporter.log("switcheddd to frame", true);
+		Logger.info("switcheddd to frame");
+
 		
 		//swicthing to parent
 		switchToParentFrame(driver);
@@ -66,11 +68,12 @@ public class ChatPopUp extends BasePage
 		//switching to other frame that has accept cookies button
 		switchFrameUsingIndex(driver, 3);
 		
-		Reporter.log("entered inner frame", true);
+		Logger.info("entered inner frame");
+
 		waitUntilElementToBeClickable(driver, acceptCookiesButtonOnChatBox);
 		acceptCookiesButtonOnChatBox.click();
-		Reporter.log("accepted cookies", true);
-	
+		Logger.info("accepted cookies");
+
 	}
 	
 	public void sendMessageOnChatPopUpOnce()
@@ -86,11 +89,11 @@ public class ChatPopUp extends BasePage
 		waitUntilElementToBeClickable(driver, sendAgainButton);
 		if(sendAgainButton.isDisplayed())
 		{
-			Reporter.log("message sent", true);
+			Logger.info("message sent");
 		}
 		else
 		{
-			Reporter.log("message not sent", true);
+			Logger.info("message not sent");
 		}
 		
 	}

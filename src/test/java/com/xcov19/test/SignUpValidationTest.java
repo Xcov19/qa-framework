@@ -15,6 +15,7 @@ import org.testng.annotations.DataProvider;
 
 import com.xcov19.generics.BaseTest;
 import com.xcov19.generics.ExcelLibrary;
+import com.xcov19.generics.Logger;
 import com.xcov19.pom.LoginPage;
 
 public class SignUpValidationTest extends BaseTest
@@ -22,10 +23,10 @@ public class SignUpValidationTest extends BaseTest
 	@Test
 	public void clickOnSignUpTest()
 	{
-		Reporter.log("signup validation test", true);
+		Logger.info("signup validation test");
 		LoginPage login = new LoginPage(driver);
 		login.selectSignUp();
-		Reporter.log("signup started", true);
+		Logger.info("signup started");
 		Reporter.log("-------------------------------------------------------------------", true);
 	}
 	
@@ -46,9 +47,8 @@ public class SignUpValidationTest extends BaseTest
 	@Test(dataProvider = "signup-data", priority = 1)
 	public void signUpValidation(String username, String password) throws InterruptedException
 	{
-		
-		Reporter.log("username is"+username, true);
-		Reporter.log("password is"+password, true);
+		Logger.info("username is"+username);
+		Logger.info("password is"+password);
 		
 		WebElement emailField = driver.findElement(By.xpath("//input[@name='email']"));
 		WebElement passwordField = driver.findElement(By.xpath("//input[@name='password']"));
@@ -59,7 +59,7 @@ public class SignUpValidationTest extends BaseTest
 		wait.until(ExpectedConditions.visibilityOf(emailField));
 		emailField.clear();
 		emailField.sendKeys(username);
-		Reporter.log(username);
+		Logger.info(username);
 	
 		wait.until(ExpectedConditions.visibilityOf(passwordField));
 		passwordField.sendKeys(password);
@@ -73,11 +73,11 @@ public class SignUpValidationTest extends BaseTest
 		
 		if(actualURL.equalsIgnoreCase(expectedURL))
 		{
-			Reporter.log("signup successful");
+			Logger.info("signup successful");
 		}
 		else
 		{
-			Reporter.log("signup unsuccessful");
+			Logger.info("signup unsuccessful");
 
 		}
 	}

@@ -21,6 +21,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.json.Json;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import org.testng.Reporter;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -32,6 +33,7 @@ import org.testng.annotations.Test;
 
 import com.xcov19.generics.BaseTest;
 import com.xcov19.generics.ExcelLibrary;
+import com.xcov19.generics.Logger;
 import com.xcov19.pom.ChatPopUp;
 import com.xcov19.pom.LoginPage;
 
@@ -41,7 +43,7 @@ public class ChatTest extends BaseTest
 	@Test(priority = 1)
 	public void openChatPopUpTest() throws InterruptedException
 	{
-		Reporter.log("chat test", true);
+		Logger.info("chat test");
 		LoginPage login = new LoginPage(driver);
 		try {
 			login.performLogin();
@@ -74,21 +76,21 @@ public class ChatTest extends BaseTest
 				details[i][j] = ExcelLibrary.cellValue("ChatDetails", i+1, j);
 			}
 		}
-		Reporter.log("details: " + details, true);
+		Logger.info("details: " + details);
 		return details;
 	}
 
 	@Test(dataProvider = "chatData", priority = 2, invocationCount = 0)
 	public void chatBoxValidation(String name, String email, String message) throws InterruptedException
 	{
-		Reporter.log("name: " + name + " email: " + email, true);
+		Logger.info("name: " + name + " email: " + email);
 		
 		WebElement nameField = driver.findElement(By.xpath("//input[@aria-placeholder='Name']"));
 		WebElement emailField = driver.findElement(By.xpath("(//input[@aria-placeholder='Email'])"));
 		WebElement messageField = driver.findElement(By.xpath("//div[@class='tawk-form-wrapper tawk-margin-small']//textarea"));
 		WebElement submitButton = driver.findElement(By.xpath("//div[@class='tawk-form-footer']//button"));
 		
-		Reporter.log("entering name "+name, true);
+		Logger.info("entering name "+name);
 		Duration timeout = Duration.ofSeconds(10);
 		WebDriverWait wait = new WebDriverWait(driver, timeout);
 		
@@ -98,7 +100,7 @@ public class ChatTest extends BaseTest
 		nameField.sendKeys(name);
 	
 		wait.until(ExpectedConditions.visibilityOf(emailField));
-		Reporter.log("entering email "+email, true);
+		Logger.info("entering email "+email);
 		emailField.clear();
 		emailField.sendKeys(email);	
 
@@ -115,11 +117,11 @@ public class ChatTest extends BaseTest
 		Thread.sleep(500);
 		if(sendAgainButton.isDisplayed()==true)
 		{
-			Reporter.log("message sent", true);
+			Logger.info("message sent");
 		}
 		else
 		{
-			Reporter.log("message not sent", true);
+			Logger.error("message not sent");
 		}
 		
 	}

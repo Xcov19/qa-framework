@@ -7,6 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Reporter;
 
 import com.xcov19.generics.BasePage;
+import com.xcov19.generics.Logger;
 
 public class PrivacyPolicyPopUp extends BasePage
 {
@@ -44,7 +45,7 @@ public class PrivacyPolicyPopUp extends BasePage
 		waitUntilElementToBeClickable(driver, withdrawConscentButton);
 		withdrawConscentButton.click();
 		Thread.sleep(2000);
-		Reporter.log("clicking on withdraw button", true);
+		Logger.info("clicking on withdraw button");
 	}
 	
 	public void checkIfConsentCurrentStateIsUpdated()
@@ -68,16 +69,16 @@ public class PrivacyPolicyPopUp extends BasePage
 	{
 		waitUntilElementToBeClickable(driver, currentState);
         String actualCurrentState = currentState.getText();
-        Reporter.log("current state is "+actualCurrentState ,true );
+        Logger.info("current state is "+actualCurrentState );
         String expectedCurrentState = "Your current state: Deny. ";
         
 		if(withdrawConscentButton.isDisplayed()==false && actualCurrentState.equalsIgnoreCase(expectedCurrentState))
 		{
-			Reporter.log("withdraw button is removed from page", true);
+			Logger.info("withdraw button is removed from page");
 		}
 		else
 		{
-			Reporter.log("withdraw button is not removed from page", true);
+			Logger.info("withdraw button is not removed from page");
 		}
 	}
 	

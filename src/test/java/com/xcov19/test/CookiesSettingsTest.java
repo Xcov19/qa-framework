@@ -15,6 +15,7 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 import com.xcov19.generics.BaseTest;
+import com.xcov19.generics.Logger;
 import com.xcov19.pom.CookiesPopUp;
 import com.xcov19.pom.HomePage;
 import com.xcov19.pom.LoginPage;
@@ -26,7 +27,7 @@ public class CookiesSettingsTest extends BaseTest
 	@Test(priority = 0)
 	public void performLoginOnce() throws IOException
 	{
-		Reporter.log("cookies test", true);
+		Logger.info("cookies test");
 		LoginPage login = new LoginPage(driver);
 		login.performLogin();
 	}
@@ -36,16 +37,16 @@ public class CookiesSettingsTest extends BaseTest
 	{
 		HomePage home = new HomePage(driver);
 		home.clickOnPrivacyPolicyLink();
-		Reporter.log("clicked on privacy policy", true);
+		Logger.info("clicked on privacy policy");
 		
 		PrivacyPolicyPopUp privacy = new PrivacyPolicyPopUp(driver);
 		privacy.clickOnChangeYourConscentButton();
-		Reporter.log("clicked on Change Your ConsentButton", true);
+		Logger.info("clicked on Change Your ConsentButton");
 
 		
 		CookiesPopUp cookies = new CookiesPopUp(driver);
 		cookies.changeCookieSettings();
-		Reporter.log("changed cookie settings..", true);
+		Logger.info("changed cookie settings..");
 		
 		privacy.clickOnCloseButton();
 		
@@ -55,19 +56,19 @@ public class CookiesSettingsTest extends BaseTest
 		privacy.clickOnBackToSite(); //clicking on back to site when popup appears abruptly
 		
 		home.clickOnPrivacyPolicyLink();
-		Reporter.log("clicked on privacy policy to verify changes", true);
+		Logger.info("clicked on privacy policy to verify changes");
 		
 		privacy.clickOnChangeYourConscentButton();
-		Reporter.log("clicked on Change Your ConsentButton", true);
+		Logger.info("clicked on Change Your ConsentButton");
 		
 		cookies.verifyIfCookiesPreferencesIsSaved();
-		Reporter.log("cookie settings verified on page refresh", true);
+		Logger.info("cookie settings verified on page refresh");
 		
 		privacy.clickOnCloseButton();
 		
 		//logout and login to check if cookie preferences have been saved
 		home.performLogout();
-		Reporter.log("logged out", true);
+		Logger.info("logged out");
 		
 		home.clickOnLogIn();
 		
@@ -75,13 +76,13 @@ public class CookiesSettingsTest extends BaseTest
 		login.performLogin();
 		
 		home.clickOnPrivacyPolicyLink();
-		Reporter.log("clicked on privacy policy to verify changes", true);
+		Logger.info("clicked on privacy policy to verify changes");
 		
 		privacy.clickOnChangeYourConscentButton();
-		Reporter.log("clicked on Change Your ConsentButton", true);
+		Logger.info("clicked on Change Your ConsentButton");
 		
 		cookies.verifyIfCookiesPreferencesIsSaved();
-		Reporter.log("cookie settings verified", true);
+		Logger.info("cookie settings verified");
 		
 	
 		privacy.clickOnCloseButton();
@@ -111,7 +112,7 @@ public class CookiesSettingsTest extends BaseTest
 		
 		//logout and login to check if cookie preferences have been saved
 		home.performLogout();
-		Reporter.log("logged out", true);
+		Logger.info("logged out");
 		
 		home.clickOnLogIn();
 		

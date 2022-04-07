@@ -8,6 +8,7 @@ import org.testng.Assert;
 import org.testng.Reporter;
 
 import com.xcov19.generics.BasePage;
+import com.xcov19.generics.Logger;
 
 public class CookiesPopUp extends BasePage
 {
@@ -66,23 +67,24 @@ public class CookiesPopUp extends BasePage
 	
 	public void changeCookieSettings() throws InterruptedException
 	{
-		Reporter.log("Waiting for hidedetails to be displayed", true);
+		Logger.info("Waiting for hidedetails to be displayed");
+
 		waitUntilElementToBeClickable(driver, showOrHideDetailsLink);
 		if(hideDetailsLink.isDisplayed())
 		{
-			Reporter.log("show details has changed to hide details", true);
+			Logger.info("show details has changed to hide details");
 		}
 		else if (showDetailsLink.isDisplayed()==true) 
 		{
 			showDetailsLink.click();
-			Reporter.log("hide not displayed yet...", true);
+			Logger.info("hide not displayed yet...");
 		} 
 	
 		waitUntilElementToBeClickable(driver, statisticsOptionCheckbox);
 		statisticsOptionCheckbox.click();
-		Reporter.log("stats after click on input: "+ statisticsOptionInputCheckbox.isSelected(), true);
+		Logger.info("stats after click on input: "+ statisticsOptionInputCheckbox.isSelected());
 		Thread.sleep(2000);
-		Reporter.log("unchecked statistics", true);
+		Logger.info("unchecked statistics");
 		
 //		waitUntilElementToBeClickable(driver, hideDetailsLink);
 //		hideDetailsLink.click();
@@ -90,7 +92,7 @@ public class CookiesPopUp extends BasePage
 		
 		waitUntilElementToBeClickable(driver, OKButton);
 		performClickUsingActions(driver, OKButton);
-		Reporter.log("clicked on OK button", true);
+		Logger.info("clicked on OK button");
 		
 	}
 	
@@ -99,27 +101,27 @@ public class CookiesPopUp extends BasePage
 		waitUntilElementToBeClickable(driver, showOrHideDetailsLink);
 		if(hideDetailsLink.isDisplayed())
 		{
-			Reporter.log("show details has changed to hide details", true);
+			Logger.info("show details has changed to hide details");
 		}
 		else if (showDetailsLink.isDisplayed()==true) 
 		{
 			showDetailsLink.click();
-			Reporter.log("hide not displayed yet...", true);
+			Logger.info("hide not displayed yet...");
 		}
 		
 		waitUntilElementToBeClickable(driver, preferencesOptionCheckbox);
 		
-		Reporter.log("stats: "+statisticsOptionInputCheckbox.isSelected(), true); // should be false
+		Logger.info("stats: "+statisticsOptionInputCheckbox.isSelected()); // should be false
 		
 		Thread.sleep(1000);
 		if(preferencesInputCheckbox.isSelected()==true && marketingOptionInputCheckbox.isSelected()== true &&
 				statisticsOptionInputCheckbox.isSelected()==false)
 		{
-			Reporter.log("cookie preferences is saved ", true);
+			Logger.info("cookie preferences is saved ");
 		}
 		else
 		{
-			Reporter.log("cookie preferneces is not saved", true);
+			Logger.error("cookie preferneces is not saved");
 			Assert.fail();
 		}
 		
@@ -130,18 +132,19 @@ public class CookiesPopUp extends BasePage
 	public void verifyIfConsentIsWithdrawn() throws InterruptedException
 	{
 		waitUntilElementToBeClickable(driver, preferencesOptionCheckbox);
-		Reporter.log("preferences: "+preferencesInputCheckbox.isSelected(), true);
-		Reporter.log("stats: "+statisticsOptionInputCheckbox.isSelected(), true);
-		Reporter.log("marketing: "+marketingOptionInputCheckbox.isSelected(), true);
+		Logger.info("preferences: "+preferencesInputCheckbox.isSelected());
+		Logger.info("stats: "+statisticsOptionInputCheckbox.isSelected());
+		Logger.info("marketing: "+marketingOptionInputCheckbox.isSelected());
+		
 		Thread.sleep(3000);
 		if(preferencesInputCheckbox.isSelected()==false && statisticsOptionInputCheckbox.isSelected()==false && 
 				marketingOptionInputCheckbox.isSelected()==false)
 		{
-			Reporter.log("consent has been withdrawn", true);
+			Logger.info("consent has been withdrawn");
 		}
 		else
 		{
-			Reporter.log("error in withdraw consent", true);
+			Logger.error("error in withdraw consent");
 			Assert.fail();
 		}
 		waitUntilElementToBeClickable(driver, OKButton);
