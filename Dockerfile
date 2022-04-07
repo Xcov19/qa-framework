@@ -28,3 +28,7 @@ USER root
 
 # Copy all project files
 COPY . .
+
+# Run maven script
+ENTRYPOINT ["mvn"]
+CMD ["clean","test","-Durl=https://www.mycovidconnect.com/"]
