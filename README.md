@@ -51,7 +51,7 @@ mvn test -Durl=https://www.mycovidconnect.com/
 5. Command to create and pass URL in an environment variable
 ```
 $ export URL="https://www.mycovidconnect.com/"
-```
+
 $ mnv test -Durl=$URL
 ```
 ----------------------------------------------------------------------------------------------------------
