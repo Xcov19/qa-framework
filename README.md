@@ -52,7 +52,7 @@ mvn test -Durl=https://www.mycovidconnect.com/
 ```
 $ export URL="https://www.mycovidconnect.com/"
 
-$ mnv test -Durl=$URL
+$ mvn test -Durl=$URL
 ```
 ----------------------------------------------------------------------------------------------------------
 #### Steps to setup using Eclipse
