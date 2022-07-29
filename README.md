@@ -51,6 +51,7 @@ mvn test -Durl=https://www.mycovidconnect.com/
 5. Command to pass URL in an environment variable
 ```
 $ mnv test -Durl=$URL
+```
 ----------------------------------------------------------------------------------------------------------
 #### Steps to setup using Eclipse
 1. Install Eclipse
